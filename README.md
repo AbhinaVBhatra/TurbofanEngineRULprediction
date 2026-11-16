@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org)](https://zenodo.org/records/24288976)
+
+
 # Predictive Maintenance of Turbofan Engines: Remaining Useful Life (RUL) Prediction and Maintenance Decision Support using NASA C-MAPSS
 
 [![Python 3.13](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
