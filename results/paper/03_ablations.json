@@ -1,0 +1,184 @@
+{
+  "rul_cap_ablation": {
+    "Uncapped": {
+      "rmse": 26.253,
+      "mae": 18.31,
+      "nasa_score": 7843.84,
+      "pct_early": 29.0,
+      "pct_late": 71.0,
+      "max_late_cycles": 78.15,
+      "max_early_cycles": -54.93,
+      "ablation_dimension": "RUL_Cap",
+      "setting": "Uncapped",
+      "model": "LightGBM"
+    },
+    "Cap_100": {
+      "rmse": 20.736,
+      "mae": 14.965,
+      "nasa_score": 677.47,
+      "pct_early": 67.0,
+      "pct_late": 33.0,
+      "max_late_cycles": 35.93,
+      "max_early_cycles": -58.6,
+      "ablation_dimension": "RUL_Cap",
+      "setting": "Cap_100",
+      "model": "LightGBM"
+    },
+    "Cap_125": {
+      "rmse": 18.012,
+      "mae": 12.892,
+      "nasa_score": 560.72,
+      "pct_early": 48.0,
+      "pct_late": 52.0,
+      "max_late_cycles": 38.94,
+      "max_early_cycles": -56.26,
+      "ablation_dimension": "RUL_Cap",
+      "setting": "Cap_125",
+      "model": "LightGBM"
+    },
+    "Cap_150": {
+      "rmse": 19.262,
+      "mae": 14.335,
+      "nasa_score": 839.75,
+      "pct_early": 42.0,
+      "pct_late": 58.0,
+      "max_late_cycles": 49.1,
+      "max_early_cycles": -49.45,
+      "ablation_dimension": "RUL_Cap",
+      "setting": "Cap_150",
+      "model": "LightGBM"
+    }
+  },
+  "feature_group_ablation": {
+    "Raw Sensors (14)": {
+      "rmse": 17.484,
+      "mae": 12.45,
+      "nasa_score": 861.5,
+      "pct_early": 45.0,
+      "pct_late": 55.0,
+      "max_late_cycles": 54.9,
+      "max_early_cycles": -42.5,
+      "ablation_dimension": "Feature_Group",
+      "setting": "Raw Sensors (14)",
+      "num_features": 14,
+      "model": "LightGBM"
+    },
+    "Raw + Rolling Mean (28)": {
+      "rmse": 18.544,
+      "mae": 13.529,
+      "nasa_score": 1031.21,
+      "pct_early": 42.0,
+      "pct_late": 58.0,
+      "max_late_cycles": 57.33,
+      "max_early_cycles": -42.3,
+      "ablation_dimension": "Feature_Group",
+      "setting": "Raw + Rolling Mean (28)",
+      "num_features": 28,
+      "model": "LightGBM"
+    },
+    "Raw + Mean + Std (42)": {
+      "rmse": 18.228,
+      "mae": 13.12,
+      "nasa_score": 952.57,
+      "pct_early": 42.0,
+      "pct_late": 58.0,
+      "max_late_cycles": 57.26,
+      "max_early_cycles": -43.43,
+      "ablation_dimension": "Feature_Group",
+      "setting": "Raw + Mean + Std (42)",
+      "num_features": 42,
+      "model": "LightGBM"
+    },
+    "Raw + Mean + Std + Diff (56)": {
+      "rmse": 18.595,
+      "mae": 13.391,
+      "nasa_score": 994.95,
+      "pct_early": 44.0,
+      "pct_late": 56.0,
+      "max_late_cycles": 55.69,
+      "max_early_cycles": -42.07,
+      "ablation_dimension": "Feature_Group",
+      "setting": "Raw + Mean + Std + Diff (56)",
+      "num_features": 56,
+      "model": "LightGBM"
+    },
+    "Full Engineered Set (99)": {
+      "rmse": 18.012,
+      "mae": 12.892,
+      "nasa_score": 560.72,
+      "pct_early": 48.0,
+      "pct_late": 52.0,
+      "max_late_cycles": 38.94,
+      "max_early_cycles": -56.26,
+      "ablation_dimension": "Feature_Group",
+      "setting": "Full Engineered Set (99)",
+      "num_features": 99,
+      "model": "LightGBM"
+    }
+  },
+  "regime_normalization_ablation": {
+    "With_Regime_Clustering": {
+      "rmse": 28.436,
+      "mae": 21.068,
+      "nasa_score": 5837.4,
+      "pct_early": 52.4,
+      "pct_late": 47.6,
+      "max_late_cycles": 47.7,
+      "max_early_cycles": -80.44,
+      "ablation_dimension": "Regime_Normalization",
+      "setting": "With_Regime_Clustering"
+    },
+    "Without_Regime_Clustering": {
+      "rmse": 30.049,
+      "mae": 22.467,
+      "nasa_score": 6838.08,
+      "pct_early": 52.8,
+      "pct_late": 47.2,
+      "max_late_cycles": 53.16,
+      "max_early_cycles": -77.74,
+      "ablation_dimension": "Regime_Normalization",
+      "setting": "Without_Regime_Clustering (Global Standard)"
+    }
+  },
+  "window_length_ablation": {
+    "W_20": {
+      "rmse": 17.252,
+      "mae": 12.414,
+      "nasa_score": 827.45,
+      "pct_early": 34.0,
+      "pct_late": 66.0,
+      "max_late_cycles": 54.98,
+      "max_early_cycles": -44.55,
+      "ablation_dimension": "Window_Length",
+      "setting": "W_20",
+      "window_length": 20,
+      "model": "PyTorch GRU"
+    },
+    "W_30": {
+      "rmse": 15.223,
+      "mae": 11.036,
+      "nasa_score": 385.39,
+      "pct_early": 55.0,
+      "pct_late": 45.0,
+      "max_late_cycles": 41.7,
+      "max_early_cycles": -43.44,
+      "ablation_dimension": "Window_Length",
+      "setting": "W_30",
+      "window_length": 30,
+      "model": "PyTorch GRU"
+    },
+    "W_50": {
+      "rmse": 14.976,
+      "mae": 11.461,
+      "nasa_score": 431.29,
+      "pct_early": 51.0,
+      "pct_late": 49.0,
+      "max_late_cycles": 46.42,
+      "max_early_cycles": -50.24,
+      "ablation_dimension": "Window_Length",
+      "setting": "W_50",
+      "window_length": 50,
+      "model": "PyTorch GRU"
+    }
+  }
+}

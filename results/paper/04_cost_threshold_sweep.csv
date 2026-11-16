@@ -1,0 +1,9 @@
+policy,threshold,fleet_size,unplanned_failures,planned_overhauls,premature_overhauls,pct_failures_prevented,avg_wasted_cycles,avg_lead_time,total_fleet_cost_USD,cost_per_engine_USD
+"Predictive (LightGBM, T=5)",5,100,5.0,95.0,0.0,95.0,4.0,4.0,4879000.0,48790.0
+"Predictive (LightGBM, T=10)",10,100,0.0,100.0,5.0,100.0,10.0,10.0,4200000.0,42000.0
+"Predictive (LightGBM, T=15)",15,100,0.0,100.0,0.0,100.0,15.2,15.2,4303000.0,43030.0
+"Predictive (LightGBM, T=20)",20,100,0.0,100.0,0.0,100.0,19.2,19.2,4385000.0,43850.0
+"Predictive (LightGBM, T=25)",25,100,0.0,100.0,0.0,100.0,24.0,24.0,4480000.0,44800.0
+"Predictive (LightGBM, T=30)",30,100,0.0,100.0,0.0,100.0,28.1,28.1,4563000.0,45630.0
+"Predictive (LightGBM, T=35)",35,100,0.0,100.0,0.0,100.0,35.9,35.9,4718000.0,47180.0
+"Predictive (LightGBM, T=40)",40,100,0.0,100.0,0.0,100.0,39.6,39.6,4792000.0,47920.0

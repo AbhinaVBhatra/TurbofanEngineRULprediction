@@ -1,0 +1,4 @@
+Policy,Unplanned Cost ($),Planned Cost ($),Wasted Life Cost ($),Total Fleet Cost ($),Unplanned Failures,Planned Overhauls
+Run-to-Failure (Corrective),20000000.0,0.0,0.0,20000000.0,100,0
+Fixed-Schedule (130 cycles),200000.0,3960000.0,1526600.0,5686600.0,1,99
+Predictive Maintenance (T*=10c),0.0,4000000.0,200000.0,4200000.0,0,100

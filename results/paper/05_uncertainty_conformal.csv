@@ -1,0 +1,6 @@
+method,split,nominal_coverage_percent,empirical_picp_percent,mpiw_cycles,calibration_adjustment_q,notes
+Uncalibrated Quantiles (Val),Validation,80.0,88.33,53.63,0.0,Raw pinball loss on full degradation engines
+Uncalibrated Quantiles (Test),Test,80.0,72.0,69.18,0.0,Suffers undercoverage due to test censoring shift
+Split Conformal Residual Band,Test,80.0,71.0,31.08,17.24,Constant width conformal band around point prediction
+CQR Calibrated Quantiles (80%),Test,80.0,72.0,69.18,0.0,Adaptive width conformalized quantile regression
+CQR Calibrated Quantiles (90%),Test,90.0,74.0,69.78,0.58,Adaptive width calibrated to 90% confidence

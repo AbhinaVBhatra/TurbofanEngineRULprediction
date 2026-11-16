@@ -1,0 +1,50 @@
+[
+  {
+    "model": "Linear Regression (Ridge)",
+    "architecture_type": "tabular",
+    "model_size_mb": 0.001,
+    "complexity_metric": 1,
+    "latency_mean_ms": 0.226,
+    "latency_median_ms": 0.19,
+    "latency_p95_ms": 0.39,
+    "latency_min_ms": 0.07,
+    "latency_max_ms": 1.814,
+    "throughput_engines_per_sec": 4421.4
+  },
+  {
+    "model": "Random Forest (100 trees)",
+    "architecture_type": "tabular",
+    "model_size_mb": 24.138,
+    "complexity_metric": 100,
+    "latency_mean_ms": 49.691,
+    "latency_median_ms": 44.603,
+    "latency_p95_ms": 65.608,
+    "latency_min_ms": 27.044,
+    "latency_max_ms": 492.156,
+    "throughput_engines_per_sec": 20.1
+  },
+  {
+    "model": "LightGBM (250 trees)",
+    "architecture_type": "tabular",
+    "model_size_mb": 0.697,
+    "complexity_metric": 250,
+    "latency_mean_ms": 1.138,
+    "latency_median_ms": 1.029,
+    "latency_p95_ms": 1.81,
+    "latency_min_ms": 0.723,
+    "latency_max_ms": 2.132,
+    "throughput_engines_per_sec": 878.4
+  },
+  {
+    "model": "PyTorch GRU (2-layer)",
+    "architecture_type": "sequence",
+    "model_size_mb": 0.166,
+    "complexity_metric": 42433,
+    "latency_mean_ms": 5.499,
+    "latency_median_ms": 5.43,
+    "latency_p95_ms": 9.254,
+    "latency_min_ms": 2.209,
+    "latency_max_ms": 10.565,
+    "throughput_engines_per_sec": 181.8
+  }
+]

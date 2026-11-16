@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA C-MAPSS Turbofan RUL Prediction & Maintenance Decision Support</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <!-- Chart.js for zero-dependency modern client charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-area">
+      <span class="logo-icon">✈️</span>
+      <div>
+        <div class="logo-title">AeroPredict RUL</div>
+        <div class="logo-subtitle">Turbofan Maintenance Decision Support</div>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-view="fleet">Fleet Overview</button>
+      <button class="nav-btn" data-view="detail">Engine Detail</button>
+      <button class="nav-btn" data-view="upload">Upload & Predict</button>
+      <button class="nav-btn" data-view="simulate">Live Simulation</button>
+      <button class="nav-btn" data-view="cost">Cost Simulator</button>
+      <button class="nav-btn" data-view="models">Model Comparison</button>
+      <button class="nav-btn" data-view="about">About & Viva</button>
+    </nav>
+  </header>
+
+  <!-- Main Content Views -->
+  <main>
+
+    <!-- 1. FLEET OVERVIEW VIEW -->
+    <section id="view-fleet" class="view-section active">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-label">Monitored Fleet</span>
+          <span class="kpi-value" id="kpi-total-engines">--</span>
+          <span class="kpi-desc">Test Engines (NASA C-MAPSS FD001)</span>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid var(--status-critical);">
+          <span class="kpi-label">Critical Grounding (&le; 15 cyc)</span>
+          <span class="kpi-value" style="color: var(--status-critical);" id="kpi-critical">--</span>
+          <span class="kpi-desc">Immediate shop overhaul required</span>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid var(--status-warning);">
+          <span class="kpi-label">Warning Attention (&le; 40 cyc)</span>
+          <span class="kpi-value" style="color: var(--status-warning);" id="kpi-warning">--</span>
+          <span class="kpi-desc">Approaching depot maintenance</span>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid var(--status-healthy);">
+          <span class="kpi-label">Healthy Flight Cleared</span>
+          <span class="kpi-value" style="color: var(--status-healthy);" id="kpi-healthy">--</span>
+          <span class="kpi-desc">Optimal continuous operations</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Fleet Average RUL</span>
+          <span class="kpi-value" style="color: var(--accent-blue);" id="kpi-avg-rul">--</span>
+          <span class="kpi-desc">Mean remaining cycles across fleet</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>Fleet Health Status & Urgency Ranking</span>
+          <span style="font-size: 0.8rem; font-weight: normal; color: #94a3b8;">Ranked from most critical to healthiest</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Engine ID</th>
+                <th>Observed Cycles</th>
+                <th>Predicted RUL</th>
+                <th>80% Confidence Interval</th>
+                <th>Health Status</th>
+                <th>Prescribed Action</th>
+                <th>Inspect</th>
+              </tr>
+            </thead>
+            <tbody id="fleet-table-body">
+              <tr><td colspan="7" style="text-align: center; color: #94a3b8;">Loading fleet telemetry from live inference engine...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ENGINE DETAIL VIEW -->
+    <section id="view-detail" class="view-section">
+      <div class="card">
+        <div class="card-title">
+          <span id="detail-engine-title">Engine Prognostic Telemetry</span>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <label for="detail-engine-select" style="font-size: 0.85rem; color: #94a3b8;">Select Unit:</label>
+            <select id="detail-engine-select" style="width: auto;" onchange="loadEngineDetail(this.value)">
+              <option value="1">Engine #1</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="kpi-grid" style="margin-bottom: 1.5rem;">
+          <div class="kpi-card">
+            <span class="kpi-label">Current Operating Cycles</span>
+            <span class="kpi-value" id="detail-current-cycle">--</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Predicted Remaining Life</span>
+            <span class="kpi-value" style="color: var(--accent-blue);" id="detail-pred-rul">--</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">80% Uncertainty Interval</span>
+            <span class="kpi-value" style="font-size: 1.4rem;" id="detail-interval">--</span>
+            <span class="kpi-desc">[Q10 - Q90 Quantile Interval]</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Prognostic Alert</span>
+            <div><span class="badge badge-healthy" id="detail-status-badge" style="font-size: 1rem; margin-top: 0.4rem;">HEALTHY</span></div>
+            <span class="kpi-desc" id="detail-action" style="margin-top: 0.3rem;">--</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card" style="background-color: #0f172a; margin-bottom: 0;">
+            <div class="card-title" style="font-size: 0.95rem;">Key Thermodynamic Sensor Degradation Trends</div>
+            <canvas id="sensorTrendChart" height="220"></canvas>
+          </div>
+          <div class="card" style="background-color: #0f172a; margin-bottom: 0;">
+            <div class="card-title" style="font-size: 0.95rem;">TreeSHAP Feature Attributions (Local Explainability)</div>
+            <canvas id="shapChart" height="220"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. UPLOAD & PREDICT VIEW -->
+    <section id="view-upload" class="view-section">
+      <div class="card">
+        <div class="card-title">
+          <span>Custom Engine Telemetry Upload & Live Inference</span>
+          <a href="/sample-csv" download="sample_engine_31.csv" class="btn-secondary" style="font-size: 0.8rem; text-decoration: none;">
+            📥 Download Sample Engine CSV (Engine #31)
+          </a>
+        </div>
+        <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 1.5rem;">
+          Upload a raw CSV or text file containing at least 30 cycles of NASA C-MAPSS sensor telemetry.
+          The production LightGBM model will execute zero-skew feature scaling and compute real-time RUL, uncertainty bounds, and status alerts.
+        </p>
+
+        <div class="dropzone" id="upload-dropzone">
+          <div class="dropzone-icon">📁</div>
+          <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem;">Drag and drop engine telemetry CSV here</div>
+          <div style="color: #94a3b8; font-size: 0.85rem;">or click to browse your computer</div>
+          <input type="file" id="file-input" accept=".csv,.txt" style="display: none;">
+        </div>
+        <div id="upload-status" style="margin-top: 1rem; font-size: 0.9rem; font-weight: 600;"></div>
+
+        <!-- Uploaded Results Display -->
+        <div id="upload-results-card" style="display: none; margin-top: 1.5rem; border-top: 1px solid #334155; padding-top: 1.5rem;">
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <span class="kpi-label">Predicted RUL</span>
+              <span class="kpi-value" style="color: var(--accent-blue);" id="upload-pred-rul">--</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">80% Prediction Interval</span>
+              <span class="kpi-value" style="font-size: 1.4rem;" id="upload-pred-interval">--</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Operational Alert</span>
+              <div><span class="badge" id="upload-status-badge" style="font-size: 1rem; margin-top: 0.4rem;">--</span></div>
+              <span class="kpi-desc" id="upload-action" style="margin-top: 0.3rem;">--</span>
+            </div>
+          </div>
+          <div class="card" style="background-color: #0f172a;">
+            <div class="card-title" style="font-size: 0.95rem;">Historical RUL Trajectory Prediction</div>
+            <canvas id="uploadHistoryChart" height="180"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LIVE CYCLE SIMULATION VIEW -->
+    <section id="view-simulate" class="view-section">
+      <div class="card">
+        <div class="card-title">
+          <span>Continuous Flight Cycle Replay Simulator</span>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <label style="font-size: 0.85rem; color: #94a3b8;">Select Engine:</label>
+            <select id="sim-engine-select" style="width: auto;"></select>
+            <label style="font-size: 0.85rem; color: #94a3b8;">Speed:</label>
+            <select id="sim-speed-select" style="width: auto;">
+              <option value="1">1x (Realtime)</option>
+              <option value="3" selected>3x</option>
+              <option value="6">6x (Fast)</option>
+            </select>
+          </div>
+        </div>
+        <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 1.5rem;">
+          Simulates an aircraft engine logging flight cycles chronologically. As thermodynamic components degrade, the model recalculates RUL live, triggering warning and critical grounding alarms.
+        </p>
+
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <button class="btn-primary" id="sim-start-btn">▶ Start Simulation</button>
+          <button class="btn-secondary" id="sim-stop-btn" disabled>⏸ Pause</button>
+          <button class="btn-secondary" id="sim-reset-btn">🔄 Reset</button>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card" style="text-align: center;">
+            <span class="kpi-label">Current Flight Cycle</span>
+            <span class="kpi-value" id="sim-current-cycle" style="font-size: 2.5rem; color: var(--accent-blue);">30</span>
+            <span class="kpi-desc">Max History: <span id="sim-max-cycle">--</span> cycles</span>
+          </div>
+          <div class="kpi-card" style="text-align: center;">
+            <span class="kpi-label">Live Predicted RUL</span>
+            <span class="kpi-value" id="sim-rul-display" style="font-size: 2.5rem; color: #f8fafc;">--</span>
+            <span class="kpi-desc">Cycles until functional failure</span>
+          </div>
+          <div class="kpi-card" style="text-align: center;">
+            <span class="kpi-label">Maintenance Status</span>
+            <div style="margin-top: 0.5rem;"><span class="badge badge-healthy" id="sim-status-badge" style="font-size: 1.25rem;">READY</span></div>
+            <span class="kpi-desc">Dynamic safety state</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. COST SIMULATOR VIEW -->
+    <section id="view-cost" class="view-section">
+      <div class="card">
+        <div class="card-title">
+          <span>Interactive Maintenance Economics & Financial ROI Simulator</span>
+          <span style="font-size: 0.8rem; font-weight: normal; color: #38bdf8;">Live Recomputation via POST /cost</span>
+        </div>
+        <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 1.5rem;">
+          Adjust operational financial assumptions using the sliders below. The simulator instantly recomputes 100-engine fleet lifecycle expenditures comparing Run-to-Failure, Fixed-Interval Overhaul, and Model-Driven Predictive Maintenance.
+        </p>
+
+        <div class="grid-2">
+          <!-- Sliders -->
+          <div>
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Unplanned Catastrophic Failure Cost (C_unplanned)</span>
+                <span class="slider-val" id="cost-unplanned-val">$200,000</span>
+              </div>
+              <input type="range" id="cost-unplanned" min="100000" max="500000" step="10000" value="200000">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Planned Depot Overhaul Cost (C_planned)</span>
+                <span class="slider-val" id="cost-planned-val">$40,000</span>
+              </div>
+              <input type="range" id="cost-planned" min="20000" max="100000" step="5000" value="40000">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Wasted Component Life Cost per Cycle (C_waste)</span>
+                <span class="slider-val" id="cost-waste-val">$200</span>
+              </div>
+              <input type="range" id="cost-waste" min="50" max="500" step="25" value="200">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Predictive Decision Threshold (T)</span>
+                <span class="slider-val" id="cost-threshold-val">15 cycles</span>
+              </div>
+              <input type="range" id="cost-threshold" min="5" max="40" step="1" value="15">
+            </div>
+          </div>
+
+          <!-- Savings Cards -->
+          <div>
+            <div class="kpi-card" style="border-left: 4px solid #10b981; margin-bottom: 1rem;">
+              <span class="kpi-label">Cost Avoidance vs Run-to-Failure</span>
+              <span class="kpi-value" style="color: #10b981;" id="cost-savings-rtf">$0</span>
+              <span class="kpi-desc" id="cost-savings-rtf-pct">--</span>
+            </div>
+            <div class="kpi-card" style="border-left: 4px solid var(--accent-blue);">
+              <span class="kpi-label">Cost Avoidance vs Fixed Overhaul Schedule</span>
+              <span class="kpi-value" style="color: var(--accent-blue);" id="cost-savings-fixed">$0</span>
+              <span class="kpi-desc" id="cost-savings-fixed-pct">--</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="background-color: #0f172a; margin-top: 1.5rem; margin-bottom: 0;">
+          <div class="card-title" style="font-size: 0.95rem;">Fleet Operational Expenditure Breakdown ($)</div>
+          <canvas id="costComparisonChart" height="150"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MODEL COMPARISON VIEW -->
+    <section id="view-models" class="view-section">
+      <div class="card">
+        <div class="card-title">
+          <span>Prognostic Model Benchmark & Complexity Analysis</span>
+          <span style="font-size: 0.8rem; font-weight: normal; color: #94a3b8;">Empirical results from results/metrics.json</span>
+        </div>
+        <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 1.5rem;">
+          Rigorous comparison of baselines (Ridge, Random Forest), Gradient Boosted Trees (LightGBM), and Recurrent Neural Networks (PyTorch GRU) evaluated against the official NASA Asymmetric Score.
+        </p>
+
+        <div class="table-container" style="margin-bottom: 1.5rem;">
+          <table>
+            <thead>
+              <tr>
+                <th>Model Architecture</th>
+                <th>Test RMSE (Cycles)</th>
+                <th>Test MAE (Cycles)</th>
+                <th>NASA Score (S)</th>
+                <th>Early / Late %</th>
+                <th>Max Late Error</th>
+              </tr>
+            </thead>
+            <tbody id="models-table-body">
+              <tr><td colspan="6" style="text-align: center; color: #94a3b8;">Loading model metrics from results/metrics.json...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="background-color: #0f172a; margin-bottom: 0;">
+          <div class="card-title" style="font-size: 0.95rem;">Performance Trade-off: Accuracy vs Asymmetric Risk</div>
+          <canvas id="modelBenchmarkChart" height="160"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ABOUT & METHODOLOGY VIEW -->
+    <section id="view-about" class="view-section">
+      <div class="card">
+        <div class="card-title">Project Overview & Academic Context</div>
+        <div style="line-height: 1.7; color: #cbd5e1; font-size: 0.9rem;">
+          <p style="margin-bottom: 1rem;">
+            <strong>Project Title:</strong> Predictive Maintenance of Turbofan Engines: Remaining Useful Life (RUL) Prediction and Maintenance Decision Support using NASA C-MAPSS
+          </p>
+          <p style="margin-bottom: 1rem;">
+            <strong>Candidate:</strong> Abhinav Bhatra | B.Tech Computer Science & Engineering (Artificial Intelligence) | Jaipur Engineering College and Research Centre (JECRC Foundation)<br>
+            <strong>Training Organization:</strong> LinuxWorld Informatics | Data Science with Artificial Intelligence
+          </p>
+
+          <div style="background-color: rgba(6, 182, 212, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px; margin: 1.5rem 0;">
+            <strong style="color: var(--accent-cyan);">DATA REALISM & SIMULATION NOTICE:</strong><br>
+            The NASA C-MAPSS dataset consists of multivariate run-to-failure trajectories generated using the <em>Commercial Modular Aero-Propulsion System Simulation</em> thermodynamic modeling tool developed at NASA Glenn Research Center. It represents simulated physics-based degradation with synthetic measurement noise, not actual commercial revenue flight telemetry.
+          </div>
+
+          <h3 style="color: var(--text-main); margin: 1.25rem 0 0.5rem 0;">Analytical Solution Architecture:</h3>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+            <li><strong>Leakage-Free Splitting:</strong> Train and validation sets partitioned strictly by unique engine ID (`unit_nr`), preventing temporal auto-correlation leakage.</li>
+            <li><strong>Piecewise RUL Target:</strong> Capped at $RUL_{cap} = 125$ cycles following crack propagation physics (Heimes 2008).</li>
+            <li><strong>Regime Normalization:</strong> 6-cluster KMeans on operational settings for multi-regime datasets (FD004) to strip altitude/speed shifts.</li>
+            <li><strong>Zero Train/Serve Skew:</strong> FastAPI backend imports and executes the exact same preprocessing routines (`src/features.py`, `src/inference.py`) used during model training.</li>
+            <li><strong>Decision Economics:</strong> Quantified financial savings across Run-to-Failure, Fixed-Interval Overhaul, and Model-Driven Predictive Maintenance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div>Predictive Maintenance Decision Support System &copy; 2026 Abhinav Bhatra (JECRC / LinuxWorld)</div>
+    <div class="academic-badge">B.Tech Industrial Training Project | Powered by FastAPI, LightGBM, PyTorch & Chart.js</div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

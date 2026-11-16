@@ -1,0 +1,5 @@
+model,architecture_type,model_size_mb,complexity_metric,latency_mean_ms,latency_median_ms,latency_p95_ms,latency_min_ms,latency_max_ms,throughput_engines_per_sec
+Linear Regression (Ridge),tabular,0.001,1,0.226,0.19,0.39,0.07,1.814,4421.4
+Random Forest (100 trees),tabular,24.138,100,49.691,44.603,65.608,27.044,492.156,20.1
+LightGBM (250 trees),tabular,0.697,250,1.138,1.029,1.81,0.723,2.132,878.4
+PyTorch GRU (2-layer),sequence,0.166,42433,5.499,5.43,9.254,2.209,10.565,181.8

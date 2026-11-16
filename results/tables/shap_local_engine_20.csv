@@ -1,0 +1,9 @@
+feature,value,shap_impact,direction
+s_4_roll_mean_5,1.404,-18.347,Decreases RUL (Degraded)
+s_11_roll_mean_5,1.762,-13.179,Decreases RUL (Degraded)
+s_3_roll_mean_15,1.115,-7.374,Decreases RUL (Degraded)
+s_2_roll_mean_5,1.647,-6.579,Decreases RUL (Degraded)
+s_15_roll_mean_5,1.506,-5.82,Decreases RUL (Degraded)
+cycle_norm,1.84,-4.727,Decreases RUL (Degraded)
+s_3_roll_mean_5,1.363,-3.972,Decreases RUL (Degraded)
+s_21_roll_mean_5,-1.567,-3.012,Decreases RUL (Degraded)

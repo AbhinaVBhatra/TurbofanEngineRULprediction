@@ -1,0 +1,47 @@
+[
+  {
+    "method": "Uncalibrated Quantiles (Val)",
+    "split": "Validation",
+    "nominal_coverage_percent": 80.0,
+    "empirical_picp_percent": 88.33,
+    "mpiw_cycles": 53.63,
+    "calibration_adjustment_q": 0.0,
+    "notes": "Raw pinball loss on full degradation engines"
+  },
+  {
+    "method": "Uncalibrated Quantiles (Test)",
+    "split": "Test",
+    "nominal_coverage_percent": 80.0,
+    "empirical_picp_percent": 72.0,
+    "mpiw_cycles": 69.18,
+    "calibration_adjustment_q": 0.0,
+    "notes": "Suffers undercoverage due to test censoring shift"
+  },
+  {
+    "method": "Split Conformal Residual Band",
+    "split": "Test",
+    "nominal_coverage_percent": 80.0,
+    "empirical_picp_percent": 71.0,
+    "mpiw_cycles": 31.08,
+    "calibration_adjustment_q": 17.24,
+    "notes": "Constant width conformal band around point prediction"
+  },
+  {
+    "method": "CQR Calibrated Quantiles (80%)",
+    "split": "Test",
+    "nominal_coverage_percent": 80.0,
+    "empirical_picp_percent": 72.0,
+    "mpiw_cycles": 69.18,
+    "calibration_adjustment_q": 0.0,
+    "notes": "Adaptive width conformalized quantile regression"
+  },
+  {
+    "method": "CQR Calibrated Quantiles (90%)",
+    "split": "Test",
+    "nominal_coverage_percent": 90.0,
+    "empirical_picp_percent": 74.0,
+    "mpiw_cycles": 69.78,
+    "calibration_adjustment_q": 0.58,
+    "notes": "Adaptive width calibrated to 90% confidence"
+  }
+]

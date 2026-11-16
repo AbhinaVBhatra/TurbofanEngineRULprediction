@@ -1,0 +1,3 @@
+,num_engines,min_cycles,max_cycles,mean_cycles,median_cycles,std_cycles,iqr_cycles
+FD001,100.0,128.0,362.0,206.31,199.0,46.34,52.25
+FD004,249.0,128.0,543.0,245.98,234.0,73.11,100.0

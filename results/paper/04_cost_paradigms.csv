@@ -1,0 +1,7 @@
+policy,unplanned_failures,planned_overhauls,pct_failures_prevented,avg_wasted_cycles,total_fleet_cost_USD,cost_per_engine_USD
+Run-to-Failure (Corrective),100.0,0.0,0.0,0.0,20000000.0,200000.0
+Fixed-Schedule (130 cycles),0.0,100.0,100.0,73.5,5470000.0,54700.0
+Fixed-Schedule (150 cycles),5.0,95.0,95.0,54.2,5885000.0,58850.0
+Fixed-Schedule (170 cycles),35.0,65.0,65.0,37.9,10358000.0,103580.0
+"Predictive (LightGBM, T=15)",0.0,100.0,100.0,15.2,4303000.0,43030.0
+"Oracle Policy (Theoretical Lower Bound, T=10)",0.0,100.0,100.0,10.0,4200000.0,42000.0

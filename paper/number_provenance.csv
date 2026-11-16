@@ -1,0 +1,118 @@
+metric_id,dataset,model,metric_name,value,unit,script_source,output_file,notes
+FD001_LGBM_RMSE_mean,FD001,LightGBM,RMSE_mean,17.650,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed mean on FD001 test
+FD001_LGBM_RMSE_std,FD001,LightGBM,RMSE_std,0.256,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed std on FD001 test
+FD001_LGBM_MAE_mean,FD001,LightGBM,MAE_mean,12.617,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed mean on FD001 test
+FD001_LGBM_MAE_std,FD001,LightGBM,MAE_std,0.168,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed std on FD001 test
+FD001_LGBM_Score_mean,FD001,LightGBM,NASA_Score_mean,526.12,score,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed mean on FD001 test
+FD001_LGBM_Score_std,FD001,LightGBM,NASA_Score_std,24.00,score,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed std on FD001 test
+FD001_GRU_RMSE_mean,FD001,PyTorch GRU,RMSE_mean,15.220,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed mean on FD001 test
+FD001_GRU_RMSE_std,FD001,PyTorch GRU,RMSE_std,0.460,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed std on FD001 test
+FD001_GRU_MAE_mean,FD001,PyTorch GRU,MAE_mean,11.133,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed mean on FD001 test
+FD001_GRU_MAE_std,FD001,PyTorch GRU,MAE_std,0.202,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed std on FD001 test
+FD001_GRU_Score_mean,FD001,PyTorch GRU,NASA_Score_mean,443.52,score,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed mean on FD001 test
+FD001_GRU_Score_std,FD001,PyTorch GRU,NASA_Score_std,89.36,score,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.json,5-seed std on FD001 test
+Cost_Run-to-Failure_Total,FD001,Policy,Total_Fleet_Cost,20000000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,Total cost: Run-to-Failure (Corrective)
+Cost_Run-to-Failure_Prevented,FD001,Policy,Failures_Prevented,0.0,%,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,% Failures prevented: Run-to-Failure (Corrective)
+Cost_Fixed-Schedule_Total,FD001,Policy,Total_Fleet_Cost,10358000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,Total cost: Fixed-Schedule (170 cycles)
+Cost_Fixed-Schedule_Prevented,FD001,Policy,Failures_Prevented,65.0,%,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,% Failures prevented: Fixed-Schedule (170 cycles)
+Cost_Predictive_Total,FD001,Policy,Total_Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,"Total cost: Predictive (LightGBM, T=15)"
+Cost_Predictive_Prevented,FD001,Policy,Failures_Prevented,100.0,%,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,"% Failures prevented: Predictive (LightGBM, T=15)"
+Cost_Oracle_Policy_Total,FD001,Policy,Total_Fleet_Cost,4200000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,"Total cost: Oracle Policy (Theoretical Lower Bound, T=10)"
+Cost_Oracle_Policy_Prevented,FD001,Policy,Failures_Prevented,100.0,%,experiments/04_cost_simulation.py,results/paper/04_cost_simulation.json,"% Failures prevented: Oracle Policy (Theoretical Lower Bound, T=10)"
+Cost_Sensitivity_Ratio_2x_PredCost,FD001,LightGBM,Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Pred cost at 2x ratio
+Cost_Sensitivity_Ratio_2x_SavingsRTF,FD001,LightGBM,Savings_vs_RTF,3697000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Savings over RTF at 2x ratio
+Cost_Sensitivity_Ratio_3x_PredCost,FD001,LightGBM,Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Pred cost at 3x ratio
+Cost_Sensitivity_Ratio_3x_SavingsRTF,FD001,LightGBM,Savings_vs_RTF,7697000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Savings over RTF at 3x ratio
+Cost_Sensitivity_Ratio_5x_PredCost,FD001,LightGBM,Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Pred cost at 5x ratio
+Cost_Sensitivity_Ratio_5x_SavingsRTF,FD001,LightGBM,Savings_vs_RTF,15697000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Savings over RTF at 5x ratio
+Cost_Sensitivity_Ratio_8x_PredCost,FD001,LightGBM,Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Pred cost at 8x ratio
+Cost_Sensitivity_Ratio_8x_SavingsRTF,FD001,LightGBM,Savings_vs_RTF,27697000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Savings over RTF at 8x ratio
+Cost_Sensitivity_Ratio_10x_PredCost,FD001,LightGBM,Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Pred cost at 10x ratio
+Cost_Sensitivity_Ratio_10x_SavingsRTF,FD001,LightGBM,Savings_vs_RTF,35697000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Savings over RTF at 10x ratio
+Cost_Sensitivity_Ratio_15x_PredCost,FD001,LightGBM,Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Pred cost at 15x ratio
+Cost_Sensitivity_Ratio_15x_SavingsRTF,FD001,LightGBM,Savings_vs_RTF,55697000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Savings over RTF at 15x ratio
+Cost_Sensitivity_Ratio_20x_PredCost,FD001,LightGBM,Fleet_Cost,4303000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Pred cost at 20x ratio
+Cost_Sensitivity_Ratio_20x_SavingsRTF,FD001,LightGBM,Savings_vs_RTF,75697000.00,USD,experiments/04_cost_simulation.py,results/paper/04_cost_sensitivity.csv,Savings over RTF at 20x ratio
+Uncertainty_Val_Uncal_PICP,FD001,LightGBM_Quantile,PICP,88.3,%,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Validation uncalibrated coverage
+Uncertainty_Val_Uncal_MPIW,FD001,LightGBM_Quantile,MPIW,53.6,cycles,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Validation uncalibrated width
+Uncertainty_Test_Uncal_PICP,FD001,LightGBM_Quantile,PICP,72.0,%,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Test uncalibrated coverage (coverage drop)
+Uncertainty_Test_Uncal_MPIW,FD001,LightGBM_Quantile,MPIW,69.2,cycles,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Test uncalibrated width
+Uncertainty_Test_CQR80_PICP,FD001,CQR_LightGBM,PICP,72.0,%,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Test calibrated CQR 80% coverage
+Uncertainty_Test_CQR80_MPIW,FD001,CQR_LightGBM,MPIW,69.2,cycles,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Test calibrated CQR 80% width
+Uncertainty_Test_CQR90_PICP,FD001,CQR_LightGBM,PICP,74.0,%,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Test calibrated CQR 90% coverage
+Uncertainty_Test_CQR90_MPIW,FD001,CQR_LightGBM,MPIW,69.8,cycles,experiments/05_uncertainty_conformal.py,results/paper/05_uncertainty_conformal.json,Test calibrated CQR 90% width
+StatTest_Delta_RMSE,FD001,LGBM_vs_GRU,Delta_RMSE,1.936,cycles,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,Point difference LGBM - GRU
+StatTest_CI_Low_RMSE,FD001,LGBM_vs_GRU,CI95_Low_RMSE,-0.645,cycles,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,95% CI lower bound
+StatTest_CI_High_RMSE,FD001,LGBM_vs_GRU,CI95_High_RMSE,4.528,cycles,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,95% CI upper bound
+StatTest_pvalue_RMSE,FD001,LGBM_vs_GRU,p_value_RMSE,0.1458,p-value,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,Bootstrap p-value
+StatTest_Delta_MAE,FD001,LGBM_vs_GRU,Delta_MAE,1.291,cycles,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,Point difference LGBM - GRU
+StatTest_CI_Low_MAE,FD001,LGBM_vs_GRU,CI95_Low_MAE,-0.730,cycles,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,95% CI lower bound
+StatTest_CI_High_MAE,FD001,LGBM_vs_GRU,CI95_High_MAE,3.415,cycles,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,95% CI upper bound
+StatTest_pvalue_MAE,FD001,LGBM_vs_GRU,p_value_MAE,0.2204,p-value,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,Bootstrap p-value
+StatTest_Delta_NASA_Score,FD001,LGBM_vs_GRU,Delta_NASA_Score,120.380,score,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,Point difference LGBM - GRU
+StatTest_CI_Low_NASA_Score,FD001,LGBM_vs_GRU,CI95_Low_NASA_Score,-97.570,score,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,95% CI lower bound
+StatTest_CI_High_NASA_Score,FD001,LGBM_vs_GRU,CI95_High_NASA_Score,338.580,score,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,95% CI upper bound
+StatTest_pvalue_NASA_Score,FD001,LGBM_vs_GRU,p_value_NASA_Score,0.2732,p-value,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,Bootstrap p-value
+StatTest_Wilcoxon_pvalue,FD001,LGBM_vs_GRU,Wilcoxon_p_value,6.9254e-01,p-value,experiments/06_statistical_tests.py,results/paper/06_statistical_tests.json,Wilcoxon signed-rank test p-value
+Profile_Linear_Regression_Latency_Mean,FD001,Linear Regression (Ridge),Latency_Mean,0.226,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency mean
+Profile_Linear_Regression_Latency_p95,FD001,Linear Regression (Ridge),Latency_p95,0.390,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency 95th percentile
+Profile_Linear_Regression_FileSize,FD001,Linear Regression (Ridge),FileSize_MB,0.001,MB,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Artifact disk size
+Profile_Linear_Regression_Throughput,FD001,Linear Regression (Ridge),Throughput,4421.4,engines/sec,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Inference throughput on CPU
+Profile_Random_Forest_Latency_Mean,FD001,Random Forest (100 trees),Latency_Mean,49.691,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency mean
+Profile_Random_Forest_Latency_p95,FD001,Random Forest (100 trees),Latency_p95,65.608,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency 95th percentile
+Profile_Random_Forest_FileSize,FD001,Random Forest (100 trees),FileSize_MB,24.138,MB,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Artifact disk size
+Profile_Random_Forest_Throughput,FD001,Random Forest (100 trees),Throughput,20.1,engines/sec,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Inference throughput on CPU
+Profile_LightGBM_Latency_Mean,FD001,LightGBM (250 trees),Latency_Mean,1.138,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency mean
+Profile_LightGBM_Latency_p95,FD001,LightGBM (250 trees),Latency_p95,1.810,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency 95th percentile
+Profile_LightGBM_FileSize,FD001,LightGBM (250 trees),FileSize_MB,0.697,MB,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Artifact disk size
+Profile_LightGBM_Throughput,FD001,LightGBM (250 trees),Throughput,878.4,engines/sec,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Inference throughput on CPU
+Profile_PyTorch_GRU_Latency_Mean,FD001,PyTorch GRU (2-layer),Latency_Mean,5.499,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency mean
+Profile_PyTorch_GRU_Latency_p95,FD001,PyTorch GRU (2-layer),Latency_p95,9.254,ms,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Single-engine CPU latency 95th percentile
+Profile_PyTorch_GRU_FileSize,FD001,PyTorch GRU (2-layer),FileSize_MB,0.166,MB,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Artifact disk size
+Profile_PyTorch_GRU_Throughput,FD001,PyTorch GRU (2-layer),Throughput,181.8,engines/sec,experiments/07_inference_benchmark.py,results/paper/07_inference_benchmark.json,Inference throughput on CPU
+FD001_Ablation_Cap_Uncapped_RMSE,FD001,LightGBM,RMSE,26.253,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Uncapped
+FD001_Ablation_Cap_Uncapped_Score,FD001,LightGBM,NASA_Score,7843.84,score,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Uncapped
+FD001_Ablation_Cap_Cap_100_RMSE,FD001,LightGBM,RMSE,20.736,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Cap_100
+FD001_Ablation_Cap_Cap_100_Score,FD001,LightGBM,NASA_Score,677.47,score,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Cap_100
+FD001_Ablation_Cap_Cap_125_RMSE,FD001,LightGBM,RMSE,18.012,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Cap_125
+FD001_Ablation_Cap_Cap_125_Score,FD001,LightGBM,NASA_Score,560.72,score,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Cap_125
+FD001_Ablation_Cap_Cap_150_RMSE,FD001,LightGBM,RMSE,19.262,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Cap_150
+FD001_Ablation_Cap_Cap_150_Score,FD001,LightGBM,NASA_Score,839.75,score,experiments/03_ablations.py,results/paper/03_ablations.json,RUL cap ablation: Cap_150
+FD001_Ablation_Feat_Raw_Sensors_RMSE,FD001,LightGBM,RMSE,17.484,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw Sensors (14)
+FD001_Ablation_Feat_Raw_Sensors_Score,FD001,LightGBM,NASA_Score,861.50,score,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw Sensors (14)
+FD001_Ablation_Feat_Raw_plus_Rolling_Mean_RMSE,FD001,LightGBM,RMSE,18.544,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw + Rolling Mean (28)
+FD001_Ablation_Feat_Raw_plus_Rolling_Mean_Score,FD001,LightGBM,NASA_Score,1031.21,score,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw + Rolling Mean (28)
+FD001_Ablation_Feat_Raw_plus_Mean_plus_Std_RMSE,FD001,LightGBM,RMSE,18.228,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw + Mean + Std (42)
+FD001_Ablation_Feat_Raw_plus_Mean_plus_Std_Score,FD001,LightGBM,NASA_Score,952.57,score,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw + Mean + Std (42)
+FD001_Ablation_Feat_Raw_plus_Mean_plus_Std_plus_Diff_RMSE,FD001,LightGBM,RMSE,18.595,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw + Mean + Std + Diff (56)
+FD001_Ablation_Feat_Raw_plus_Mean_plus_Std_plus_Diff_Score,FD001,LightGBM,NASA_Score,994.95,score,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Raw + Mean + Std + Diff (56)
+FD001_Ablation_Feat_Full_Engineered_Set_RMSE,FD001,LightGBM,RMSE,18.012,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Full Engineered Set (99)
+FD001_Ablation_Feat_Full_Engineered_Set_Score,FD001,LightGBM,NASA_Score,560.72,score,experiments/03_ablations.py,results/paper/03_ablations.json,Feature group ablation: Full Engineered Set (99)
+FD004_Ablation_WithRegime_RMSE,FD004,LightGBM,RMSE,28.436,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,FD004 with regime clustering
+FD004_Ablation_WithoutRegime_RMSE,FD004,LightGBM,RMSE,30.049,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,FD004 without regime clustering
+FD004_Ablation_WithRegime_Score,FD004,LightGBM,NASA_Score,5837.40,score,experiments/03_ablations.py,results/paper/03_ablations.json,FD004 with regime clustering
+FD004_Ablation_WithoutRegime_Score,FD004,LightGBM,NASA_Score,6838.08,score,experiments/03_ablations.py,results/paper/03_ablations.json,FD004 without regime clustering
+FD001_Ablation_Window_20_RMSE,FD001,PyTorch GRU,RMSE,17.252,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Window length ablation: W=20
+FD001_Ablation_Window_20_Score,FD001,PyTorch GRU,NASA_Score,827.45,score,experiments/03_ablations.py,results/paper/03_ablations.json,Window length ablation: W=20
+FD001_Ablation_Window_30_RMSE,FD001,PyTorch GRU,RMSE,15.223,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Window length ablation: W=30
+FD001_Ablation_Window_30_Score,FD001,PyTorch GRU,NASA_Score,385.39,score,experiments/03_ablations.py,results/paper/03_ablations.json,Window length ablation: W=30
+FD001_Ablation_Window_50_RMSE,FD001,PyTorch GRU,RMSE,14.976,cycles,experiments/03_ablations.py,results/paper/03_ablations.json,Window length ablation: W=50
+FD001_Ablation_Window_50_Score,FD001,PyTorch GRU,NASA_Score,431.29,score,experiments/03_ablations.py,results/paper/03_ablations.json,Window length ablation: W=50
+FD001_Ridge_RMSE,FD001,Linear Regression (Ridge),RMSE,19.908,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test RMSE
+FD001_Ridge_MAE,FD001,Linear Regression (Ridge),MAE,15.176,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test MAE
+FD001_Ridge_Score,FD001,Linear Regression (Ridge),NASA_Score,728.63,score,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test NASA Score
+FD001_RF_RMSE,FD001,Random Forest,RMSE,18.474,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test RMSE
+FD001_RF_MAE,FD001,Random Forest,MAE,13.343,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test MAE
+FD001_RF_Score,FD001,Random Forest,NASA_Score,624.83,score,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test NASA Score
+FD001_LGBM_RMSE,FD001,LightGBM,RMSE,18.012,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test RMSE
+FD001_LGBM_MAE,FD001,LightGBM,MAE,12.892,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test MAE
+FD001_LGBM_Score,FD001,LightGBM,NASA_Score,560.72,score,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test NASA Score
+FD001_GRU_RMSE,FD001,PyTorch GRU,RMSE,15.223,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test RMSE
+FD001_GRU_MAE,FD001,PyTorch GRU,MAE,11.036,cycles,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test MAE
+FD001_GRU_Score,FD001,PyTorch GRU,NASA_Score,385.39,score,experiments/02_all_subsets.py,results/paper/02_all_subsets.json,FD001 test NASA Score
+FD001_LGBM_RMSE_mean_3seeds,FD001,LightGBM,RMSE_mean_3seeds,17.741,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.csv,"3-seed [42, 123, 456] mean on FD001"
+FD001_LGBM_RMSE_std_3seeds,FD001,LightGBM,RMSE_std_3seeds,0.272,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.csv,"3-seed [42, 123, 456] std on FD001"
+FD001_LGBM_Score_mean_3seeds,FD001,LightGBM,NASA_Score_mean_3seeds,534.1,score,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.csv,"3-seed [42, 123, 456] mean on FD001"
+FD001_GRU_RMSE_mean_3seeds,FD001,PyTorch GRU,RMSE_mean_3seeds,15.290,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.csv,"3-seed [42, 123, 456] mean on FD001"
+FD001_GRU_RMSE_std_3seeds,FD001,PyTorch GRU,RMSE_std_3seeds,0.492,cycles,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.csv,"3-seed [42, 123, 456] std on FD001"
+FD001_GRU_Score_mean_3seeds,FD001,PyTorch GRU,NASA_Score_mean_3seeds,462.2,score,experiments/01_multiseed_benchmark.py,results/paper/01_multiseed_benchmark.csv,"3-seed [42, 123, 456] mean on FD001"

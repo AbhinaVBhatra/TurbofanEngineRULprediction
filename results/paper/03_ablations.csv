@@ -1,0 +1,15 @@
+rmse,mae,nasa_score,pct_early,pct_late,max_late_cycles,max_early_cycles,ablation_dimension,setting,model,num_features,window_length
+26.253,18.31,7843.84,29.0,71.0,78.15,-54.93,RUL_Cap,Uncapped,LightGBM,,
+20.736,14.965,677.47,67.0,33.0,35.93,-58.6,RUL_Cap,Cap_100,LightGBM,,
+18.012,12.892,560.72,48.0,52.0,38.94,-56.26,RUL_Cap,Cap_125,LightGBM,,
+19.262,14.335,839.75,42.0,58.0,49.1,-49.45,RUL_Cap,Cap_150,LightGBM,,
+17.484,12.45,861.5,45.0,55.0,54.9,-42.5,Feature_Group,Raw Sensors (14),LightGBM,14.0,
+18.544,13.529,1031.21,42.0,58.0,57.33,-42.3,Feature_Group,Raw + Rolling Mean (28),LightGBM,28.0,
+18.228,13.12,952.57,42.0,58.0,57.26,-43.43,Feature_Group,Raw + Mean + Std (42),LightGBM,42.0,
+18.595,13.391,994.95,44.0,56.0,55.69,-42.07,Feature_Group,Raw + Mean + Std + Diff (56),LightGBM,56.0,
+18.012,12.892,560.72,48.0,52.0,38.94,-56.26,Feature_Group,Full Engineered Set (99),LightGBM,99.0,
+28.436,21.068,5837.4,52.4,47.6,47.7,-80.44,Regime_Normalization,With_Regime_Clustering,,,
+30.049,22.467,6838.08,52.8,47.2,53.16,-77.74,Regime_Normalization,Without_Regime_Clustering (Global Standard),,,
+17.252,12.414,827.45,34.0,66.0,54.98,-44.55,Window_Length,W_20,PyTorch GRU,,20.0
+15.223,11.036,385.39,55.0,45.0,41.7,-43.44,Window_Length,W_30,PyTorch GRU,,30.0
+14.976,11.461,431.29,51.0,49.0,46.42,-50.24,Window_Length,W_50,PyTorch GRU,,50.0

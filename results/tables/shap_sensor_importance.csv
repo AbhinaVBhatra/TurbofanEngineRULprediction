@@ -1,0 +1,16 @@
+sensor,description,total_shap_impact
+cycle_norm,Engine Cumulative Operating Age,9.89713198912546
+s_4,LPT outlet temperature (°R),8.89872973637617
+s_2,LPC outlet temperature (°R),7.180987941448439
+s_11,HPC outlet static pressure (psia),6.274865809728283
+s_3,HPC outlet temperature (°R),5.51425476740834
+s_9,Physical core speed (rpm),4.691941601730678
+s_15,Bypass ratio,3.653463015865672
+s_14,Corrected core speed (rpm),3.569080168227518
+s_12,Ratio of fuel flow to Ps30 (pps/psia),2.556741763640168
+s_7,HPC outlet pressure (psia),2.3354102234783203
+s_8,Physical fan speed (rpm),2.260500042769756
+s_13,Corrected fan speed (rpm),1.8455271318734132
+s_21,LPT coolant bleed (lbm/s),1.7173997226746591
+s_17,Bleed enthalpy,1.6458659893867562
+s_20,HPT coolant bleed (lbm/s),1.5516252244013287

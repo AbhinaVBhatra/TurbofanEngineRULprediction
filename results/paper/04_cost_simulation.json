@@ -1,0 +1,263 @@
+{
+  "cost_assumptions": {
+    "C_planned": 40000.0,
+    "C_unplanned_baseline": 200000.0,
+    "C_waste_per_cycle": 200.0,
+    "fleet_size": 100
+  },
+  "threshold_sweep": [
+    {
+      "policy": "Predictive (LightGBM, T=5)",
+      "threshold": 5,
+      "fleet_size": 100,
+      "unplanned_failures": 5.0,
+      "planned_overhauls": 95.0,
+      "premature_overhauls": 0.0,
+      "pct_failures_prevented": 95.0,
+      "avg_wasted_cycles": 4.0,
+      "avg_lead_time": 4.0,
+      "total_fleet_cost_USD": 4879000.0,
+      "cost_per_engine_USD": 48790.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=10)",
+      "threshold": 10,
+      "fleet_size": 100,
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "premature_overhauls": 5.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 10.0,
+      "avg_lead_time": 10.0,
+      "total_fleet_cost_USD": 4200000.0,
+      "cost_per_engine_USD": 42000.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=15)",
+      "threshold": 15,
+      "fleet_size": 100,
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "premature_overhauls": 0.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 15.2,
+      "avg_lead_time": 15.2,
+      "total_fleet_cost_USD": 4303000.0,
+      "cost_per_engine_USD": 43030.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=20)",
+      "threshold": 20,
+      "fleet_size": 100,
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "premature_overhauls": 0.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 19.2,
+      "avg_lead_time": 19.2,
+      "total_fleet_cost_USD": 4385000.0,
+      "cost_per_engine_USD": 43850.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=25)",
+      "threshold": 25,
+      "fleet_size": 100,
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "premature_overhauls": 0.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 24.0,
+      "avg_lead_time": 24.0,
+      "total_fleet_cost_USD": 4480000.0,
+      "cost_per_engine_USD": 44800.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=30)",
+      "threshold": 30,
+      "fleet_size": 100,
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "premature_overhauls": 0.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 28.1,
+      "avg_lead_time": 28.1,
+      "total_fleet_cost_USD": 4563000.0,
+      "cost_per_engine_USD": 45630.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=35)",
+      "threshold": 35,
+      "fleet_size": 100,
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "premature_overhauls": 0.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 35.9,
+      "avg_lead_time": 35.9,
+      "total_fleet_cost_USD": 4718000.0,
+      "cost_per_engine_USD": 47180.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=40)",
+      "threshold": 40,
+      "fleet_size": 100,
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "premature_overhauls": 0.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 39.6,
+      "avg_lead_time": 39.6,
+      "total_fleet_cost_USD": 4792000.0,
+      "cost_per_engine_USD": 47920.0
+    }
+  ],
+  "paradigms": [
+    {
+      "policy": "Run-to-Failure (Corrective)",
+      "unplanned_failures": 100.0,
+      "planned_overhauls": 0.0,
+      "pct_failures_prevented": 0.0,
+      "avg_wasted_cycles": 0.0,
+      "total_fleet_cost_USD": 20000000.0,
+      "cost_per_engine_USD": 200000.0
+    },
+    {
+      "policy": "Fixed-Schedule (130 cycles)",
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 73.5,
+      "total_fleet_cost_USD": 5470000.0,
+      "cost_per_engine_USD": 54700.0
+    },
+    {
+      "policy": "Fixed-Schedule (150 cycles)",
+      "unplanned_failures": 5.0,
+      "planned_overhauls": 95.0,
+      "pct_failures_prevented": 95.0,
+      "avg_wasted_cycles": 54.2,
+      "total_fleet_cost_USD": 5885000.0,
+      "cost_per_engine_USD": 58850.0
+    },
+    {
+      "policy": "Fixed-Schedule (170 cycles)",
+      "unplanned_failures": 35.0,
+      "planned_overhauls": 65.0,
+      "pct_failures_prevented": 65.0,
+      "avg_wasted_cycles": 37.9,
+      "total_fleet_cost_USD": 10358000.0,
+      "cost_per_engine_USD": 103580.0
+    },
+    {
+      "policy": "Predictive (LightGBM, T=15)",
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 15.2,
+      "total_fleet_cost_USD": 4303000.0,
+      "cost_per_engine_USD": 43030.0
+    },
+    {
+      "policy": "Oracle Policy (Theoretical Lower Bound, T=10)",
+      "unplanned_failures": 0.0,
+      "planned_overhauls": 100.0,
+      "pct_failures_prevented": 100.0,
+      "avg_wasted_cycles": 10.0,
+      "total_fleet_cost_USD": 4200000.0,
+      "cost_per_engine_USD": 42000.0
+    }
+  ],
+  "sensitivity_analysis": [
+    {
+      "cost_ratio_r": 2.0,
+      "cost_unplanned_USD": 80000.0,
+      "cost_planned_USD": 40000.0,
+      "cost_rtf_USD": 8000000.0,
+      "cost_fixed_150_USD": 5285000.0,
+      "cost_predictive_T15_USD": 4303000.0,
+      "cost_oracle_USD": 4200000.0,
+      "savings_vs_rtf_USD": 3697000.0,
+      "savings_vs_fixed_USD": 982000.0,
+      "pct_savings_vs_rtf": 46.2,
+      "pct_savings_vs_fixed": 18.6
+    },
+    {
+      "cost_ratio_r": 3.0,
+      "cost_unplanned_USD": 120000.0,
+      "cost_planned_USD": 40000.0,
+      "cost_rtf_USD": 12000000.0,
+      "cost_fixed_150_USD": 5485000.0,
+      "cost_predictive_T15_USD": 4303000.0,
+      "cost_oracle_USD": 4200000.0,
+      "savings_vs_rtf_USD": 7697000.0,
+      "savings_vs_fixed_USD": 1182000.0,
+      "pct_savings_vs_rtf": 64.1,
+      "pct_savings_vs_fixed": 21.5
+    },
+    {
+      "cost_ratio_r": 5.0,
+      "cost_unplanned_USD": 200000.0,
+      "cost_planned_USD": 40000.0,
+      "cost_rtf_USD": 20000000.0,
+      "cost_fixed_150_USD": 5885000.0,
+      "cost_predictive_T15_USD": 4303000.0,
+      "cost_oracle_USD": 4200000.0,
+      "savings_vs_rtf_USD": 15697000.0,
+      "savings_vs_fixed_USD": 1582000.0,
+      "pct_savings_vs_rtf": 78.5,
+      "pct_savings_vs_fixed": 26.9
+    },
+    {
+      "cost_ratio_r": 8.0,
+      "cost_unplanned_USD": 320000.0,
+      "cost_planned_USD": 40000.0,
+      "cost_rtf_USD": 32000000.0,
+      "cost_fixed_150_USD": 6485000.0,
+      "cost_predictive_T15_USD": 4303000.0,
+      "cost_oracle_USD": 4200000.0,
+      "savings_vs_rtf_USD": 27697000.0,
+      "savings_vs_fixed_USD": 2182000.0,
+      "pct_savings_vs_rtf": 86.6,
+      "pct_savings_vs_fixed": 33.6
+    },
+    {
+      "cost_ratio_r": 10.0,
+      "cost_unplanned_USD": 400000.0,
+      "cost_planned_USD": 40000.0,
+      "cost_rtf_USD": 40000000.0,
+      "cost_fixed_150_USD": 6885000.0,
+      "cost_predictive_T15_USD": 4303000.0,
+      "cost_oracle_USD": 4200000.0,
+      "savings_vs_rtf_USD": 35697000.0,
+      "savings_vs_fixed_USD": 2582000.0,
+      "pct_savings_vs_rtf": 89.2,
+      "pct_savings_vs_fixed": 37.5
+    },
+    {
+      "cost_ratio_r": 15.0,
+      "cost_unplanned_USD": 600000.0,
+      "cost_planned_USD": 40000.0,
+      "cost_rtf_USD": 60000000.0,
+      "cost_fixed_150_USD": 7885000.0,
+      "cost_predictive_T15_USD": 4303000.0,
+      "cost_oracle_USD": 4200000.0,
+      "savings_vs_rtf_USD": 55697000.0,
+      "savings_vs_fixed_USD": 3582000.0,
+      "pct_savings_vs_rtf": 92.8,
+      "pct_savings_vs_fixed": 45.4
+    },
+    {
+      "cost_ratio_r": 20.0,
+      "cost_unplanned_USD": 800000.0,
+      "cost_planned_USD": 40000.0,
+      "cost_rtf_USD": 80000000.0,
+      "cost_fixed_150_USD": 8885000.0,
+      "cost_predictive_T15_USD": 4303000.0,
+      "cost_oracle_USD": 4200000.0,
+      "savings_vs_rtf_USD": 75697000.0,
+      "savings_vs_fixed_USD": 4582000.0,
+      "pct_savings_vs_rtf": 94.6,
+      "pct_savings_vs_fixed": 51.6
+    }
+  ]
+}

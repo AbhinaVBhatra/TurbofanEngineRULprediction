@@ -1,0 +1,43 @@
+{
+  "bootstrap_resamples": 10000,
+  "sample_size": 100,
+  "wilcoxon_signed_rank": {
+    "w_statistic": 2410.0,
+    "p_value": 0.6925422804041386
+  },
+  "metrics": [
+    {
+      "metric": "RMSE",
+      "lgbm_value": 17.16,
+      "gru_value": 15.223,
+      "delta_lgbm_minus_gru": 1.936,
+      "ci_95_lower": -0.645,
+      "ci_95_upper": 4.528,
+      "bootstrap_p_value": 0.1458,
+      "statistically_significant": false,
+      "unit": "cycles"
+    },
+    {
+      "metric": "MAE",
+      "lgbm_value": 12.327,
+      "gru_value": 11.036,
+      "delta_lgbm_minus_gru": 1.291,
+      "ci_95_lower": -0.73,
+      "ci_95_upper": 3.415,
+      "bootstrap_p_value": 0.2204,
+      "statistically_significant": false,
+      "unit": "cycles"
+    },
+    {
+      "metric": "NASA_Score",
+      "lgbm_value": 505.77,
+      "gru_value": 385.39,
+      "delta_lgbm_minus_gru": 120.38,
+      "ci_95_lower": -97.57,
+      "ci_95_upper": 338.58,
+      "bootstrap_p_value": 0.2732,
+      "statistically_significant": false,
+      "unit": "score"
+    }
+  ]
+}

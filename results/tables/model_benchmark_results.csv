@@ -1,0 +1,5 @@
+,rmse,mae,nasa_score,pct_early,pct_late,max_late_cycles,max_early_cycles
+Linear Regression,19.908,15.176,728.63,45.0,55.0,39.45,-56.69
+Random Forest,18.474,13.343,624.83,47.0,53.0,40.68,-61.75
+LightGBM,17.16,12.327,505.77,44.0,56.0,37.65,-52.03
+PyTorch GRU,15.223,11.036,385.39,55.0,45.0,41.7,-43.44

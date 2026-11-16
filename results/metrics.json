@@ -1,0 +1,232 @@
+{
+    "dataset_fd001": {
+        "num_test_engines": 100,
+        "models": {
+            "Linear Regression": {
+                "rmse": 19.908,
+                "mae": 15.176,
+                "nasa_score": 728.63,
+                "pct_early": 45.0,
+                "pct_late": 55.0,
+                "max_late_cycles": 39.45,
+                "max_early_cycles": -56.69
+            },
+            "Random Forest": {
+                "rmse": 18.474,
+                "mae": 13.343,
+                "nasa_score": 624.83,
+                "pct_early": 47.0,
+                "pct_late": 53.0,
+                "max_late_cycles": 40.68,
+                "max_early_cycles": -61.75
+            },
+            "LightGBM": {
+                "rmse": 17.16,
+                "mae": 12.327,
+                "nasa_score": 505.77,
+                "pct_early": 44.0,
+                "pct_late": 56.0,
+                "max_late_cycles": 37.65,
+                "max_early_cycles": -52.03
+            },
+            "PyTorch GRU": {
+                "rmse": 15.223,
+                "mae": 11.036,
+                "nasa_score": 385.39,
+                "pct_early": 55.0,
+                "pct_late": 45.0,
+                "max_late_cycles": 41.7,
+                "max_early_cycles": -43.44
+            }
+        },
+        "chosen_model": "LightGBM",
+        "literature_benchmarks": {
+            "Heimes (2008) RNN MLP (Challenge Winner)": {
+                "rmse": 16.98,
+                "nasa_score": 436.5
+            },
+            "Ramasso (2014) RVM Baseline": {
+                "rmse": 19.82,
+                "nasa_score": 1152.0
+            },
+            "Zheng et al. (2017) CNN/LSTM": {
+                "rmse": 16.14,
+                "nasa_score": 338.0
+            }
+        }
+    },
+    "dataset_fd004": {
+        "num_test_engines": 248,
+        "models": {
+            "LightGBM": {
+                "rmse": 28.434,
+                "mae": 21.069,
+                "nasa_score": 5716.9,
+                "pct_early": 52.0,
+                "pct_late": 48.0,
+                "max_late_cycles": 47.57,
+                "max_early_cycles": -79.72
+            }
+        },
+        "chosen_model": "LightGBM"
+    },
+    "leakage_audit_passed": true,
+    "rul_cap": 125,
+    "window_size": 30,
+    "uncertainty_quantification": {
+        "nominal_target_coverage_pct": 80.0,
+        "validation_metrics": {
+            "picp_coverage_pct": 89.19,
+            "target_coverage_pct": 80.0,
+            "mpiw_cycles": 54.94,
+            "pct_below_lower": 10.76,
+            "pct_above_upper": 0.05
+        },
+        "test_metrics": {
+            "picp_coverage_pct": 72.0,
+            "target_coverage_pct": 80.0,
+            "mpiw_cycles": 70.65,
+            "pct_below_lower": 17.0,
+            "pct_above_upper": 11.0
+        },
+        "method": "Quantile Gradient Boosting (LightGBM alpha=0.10, 0.90)"
+    },
+    "explainability": {
+        "top_features": [
+            {
+                "feature": "cycle_norm",
+                "mean_abs_shap": 9.89713198912546
+            },
+            {
+                "feature": "s_4_roll_mean_5",
+                "mean_abs_shap": 7.7507702309118915
+            },
+            {
+                "feature": "s_11_roll_mean_5",
+                "mean_abs_shap": 5.261720139879725
+            },
+            {
+                "feature": "s_3_roll_mean_15",
+                "mean_abs_shap": 3.5964200223382448
+            },
+            {
+                "feature": "s_15_roll_mean_5",
+                "mean_abs_shap": 2.739524515981911
+            },
+            {
+                "feature": "s_2_roll_mean_5",
+                "mean_abs_shap": 2.710454121904682
+            },
+            {
+                "feature": "s_9_roll_mean_5",
+                "mean_abs_shap": 2.0935049217646524
+            },
+            {
+                "feature": "s_14_roll_mean_15",
+                "mean_abs_shap": 1.7460619052185968
+            },
+            {
+                "feature": "s_3_roll_mean_5",
+                "mean_abs_shap": 1.739406247095856
+            },
+            {
+                "feature": "s_21_roll_mean_5",
+                "mean_abs_shap": 1.1314135353241797
+            }
+        ],
+        "top_sensors": [
+            {
+                "sensor": "cycle_norm",
+                "description": "Engine Cumulative Operating Age",
+                "total_shap_impact": 9.89713198912546
+            },
+            {
+                "sensor": "s_4",
+                "description": "LPT outlet temperature (\u00b0R)",
+                "total_shap_impact": 8.89872973637617
+            },
+            {
+                "sensor": "s_2",
+                "description": "LPC outlet temperature (\u00b0R)",
+                "total_shap_impact": 7.180987941448439
+            },
+            {
+                "sensor": "s_11",
+                "description": "HPC outlet static pressure (psia)",
+                "total_shap_impact": 6.274865809728283
+            },
+            {
+                "sensor": "s_3",
+                "description": "HPC outlet temperature (\u00b0R)",
+                "total_shap_impact": 5.51425476740834
+            },
+            {
+                "sensor": "s_9",
+                "description": "Physical core speed (rpm)",
+                "total_shap_impact": 4.691941601730678
+            },
+            {
+                "sensor": "s_15",
+                "description": "Bypass ratio",
+                "total_shap_impact": 3.653463015865672
+            },
+            {
+                "sensor": "s_14",
+                "description": "Corrected core speed (rpm)",
+                "total_shap_impact": 3.569080168227518
+            }
+        ]
+    },
+    "decision_and_cost_simulation": {
+        "assumptions": {
+            "cost_unplanned_failure_usd": 200000.0,
+            "cost_planned_overhaul_usd": 40000.0,
+            "cost_wasted_life_per_cycle_usd": 200.0,
+            "cost_ratio_unplanned_to_planned": 5.0
+        },
+        "optimal_threshold_cycles": 10,
+        "run_to_failure": {
+            "policy": "Run-to-Failure",
+            "num_engines": 100,
+            "unplanned_failures": 100,
+            "planned_overhauls": 0,
+            "wasted_cycles_total": 0.0,
+            "unplanned_cost": 20000000.0,
+            "planned_cost": 0.0,
+            "wasted_life_cost": 0.0,
+            "total_cost": 20000000.0,
+            "avg_cost_per_engine": 200000.0
+        },
+        "fixed_schedule_optimal": {
+            "policy": "Fixed-Schedule (130 cycles)",
+            "interval_cycles": 130,
+            "num_engines": 100,
+            "unplanned_failures": 1,
+            "planned_overhauls": 99,
+            "wasted_cycles_total": 7633.0,
+            "unplanned_cost": 200000.0,
+            "planned_cost": 3960000.0,
+            "wasted_life_cost": 1526600.0,
+            "total_cost": 5686600.0,
+            "avg_cost_per_engine": 56866.0
+        },
+        "predictive_maintenance_optimal": {
+            "threshold": 10,
+            "planned_overhauls": 100,
+            "unplanned_failures": 0,
+            "pct_unplanned_prevented": 100.0,
+            "avg_wasted_cycles": 10.0,
+            "avg_lead_time": 10.0,
+            "planned_cost": 4000000.0,
+            "unplanned_cost": 0.0,
+            "wasted_life_cost": 200000.0,
+            "total_cost": 4200000.0
+        },
+        "financial_savings": {
+            "savings_vs_run_to_failure": 15800000.0,
+            "pct_savings_vs_rtf": 79.0,
+            "savings_vs_fixed_schedule": 1486600.0,
+            "pct_savings_vs_fixed": 26.14
+        }
+    }
+}

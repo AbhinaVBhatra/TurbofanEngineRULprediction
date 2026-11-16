@@ -1,0 +1,146 @@
+{
+  "LightGBM": {
+    "rmse_mean": 17.6496,
+    "rmse_std": 0.2561167702435747,
+    "mae_mean": 12.6174,
+    "mae_std": 0.16782818595218105,
+    "score_mean": 526.124,
+    "score_std": 23.999465202374836,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      2024
+    ],
+    "individual_runs": [
+      {
+        "rmse": 18.012,
+        "mae": 12.892,
+        "nasa_score": 560.72,
+        "pct_early": 48.0,
+        "pct_late": 52.0,
+        "max_late_cycles": 38.94,
+        "max_early_cycles": -56.26,
+        "seed": 42,
+        "model": "LightGBM"
+      },
+      {
+        "rmse": 17.469,
+        "mae": 12.492,
+        "nasa_score": 507.55,
+        "pct_early": 50.0,
+        "pct_late": 50.0,
+        "max_late_cycles": 39.02,
+        "max_early_cycles": -48.58,
+        "seed": 123,
+        "model": "LightGBM"
+      },
+      {
+        "rmse": 17.743,
+        "mae": 12.623,
+        "nasa_score": 534.0,
+        "pct_early": 49.0,
+        "pct_late": 51.0,
+        "max_late_cycles": 35.9,
+        "max_early_cycles": -54.3,
+        "seed": 456,
+        "model": "LightGBM"
+      },
+      {
+        "rmse": 17.351,
+        "mae": 12.471,
+        "nasa_score": 499.78,
+        "pct_early": 47.0,
+        "pct_late": 53.0,
+        "max_late_cycles": 34.61,
+        "max_early_cycles": -56.35,
+        "seed": 789,
+        "model": "LightGBM"
+      },
+      {
+        "rmse": 17.673,
+        "mae": 12.609,
+        "nasa_score": 528.57,
+        "pct_early": 50.0,
+        "pct_late": 50.0,
+        "max_late_cycles": 41.2,
+        "max_early_cycles": -51.44,
+        "seed": 2024,
+        "model": "LightGBM"
+      }
+    ]
+  },
+  "PyTorch GRU": {
+    "rmse_mean": 15.220400000000001,
+    "rmse_std": 0.46003184672368064,
+    "mae_mean": 11.1334,
+    "mae_std": 0.2015906743874824,
+    "score_mean": 443.51800000000003,
+    "score_std": 89.35561073598006,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      2024
+    ],
+    "individual_runs": [
+      {
+        "rmse": 15.223,
+        "mae": 11.036,
+        "nasa_score": 385.39,
+        "pct_early": 55.0,
+        "pct_late": 45.0,
+        "max_late_cycles": 41.7,
+        "max_early_cycles": -43.44,
+        "seed": 42,
+        "model": "PyTorch GRU"
+      },
+      {
+        "rmse": 15.812,
+        "mae": 10.997,
+        "nasa_score": 598.55,
+        "pct_early": 47.0,
+        "pct_late": 53.0,
+        "max_late_cycles": 51.56,
+        "max_early_cycles": -50.33,
+        "seed": 123,
+        "model": "PyTorch GRU"
+      },
+      {
+        "rmse": 14.834,
+        "mae": 11.204,
+        "nasa_score": 402.79,
+        "pct_early": 39.0,
+        "pct_late": 61.0,
+        "max_late_cycles": 44.15,
+        "max_early_cycles": -31.88,
+        "seed": 456,
+        "model": "PyTorch GRU"
+      },
+      {
+        "rmse": 14.713,
+        "mae": 10.974,
+        "nasa_score": 440.8,
+        "pct_early": 37.0,
+        "pct_late": 63.0,
+        "max_late_cycles": 47.08,
+        "max_early_cycles": -35.84,
+        "seed": 789,
+        "model": "PyTorch GRU"
+      },
+      {
+        "rmse": 15.52,
+        "mae": 11.456,
+        "nasa_score": 390.06,
+        "pct_early": 47.0,
+        "pct_late": 53.0,
+        "max_late_cycles": 41.83,
+        "max_early_cycles": -41.88,
+        "seed": 2024,
+        "model": "PyTorch GRU"
+      }
+    ]
+  }
+}
