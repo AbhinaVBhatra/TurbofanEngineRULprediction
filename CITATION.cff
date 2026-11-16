@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "Turbofan Engine RUL Analysis"
+message: "If you use this software, please cite both the software and the associated research paper."
+type: software
+authors:
+  - family-names: "Bhatra"
+    given-names: "Abhinav"
+    orcid: "https://orcid.org"
+version: 1.0.0
+date-released: "2026-11-17"
+repository-code: "https://github.com/AbhinaVBhatra/TurbofanEngineRULprediction"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24289179"
+    description: "Archived software release on Zenodo"
+preferred-citation:
+  type: article
+  title: "Leakage-Free Remaining Useful life Prediction and Cost-Aware Maintenance Decision Support for Turbofan Engines"
+  authors:
+    - family-names: "Bhatra"
+      given-names: "Abhinav"
+  journal: "Journal or Conference Name"
+  year: 2026
+  doi: "10.5281/zenodo.24288976"
